@@ -1,4 +1,4 @@
-import { ProjectConfig } from './interfaces.js';
+import { ProjectConfig } from './interfaces.ts';
 
 export async function boot(){
     console.log('Booting application...');
