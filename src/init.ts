@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
-import { fileURLToPath } from 'url';
-import { dirname, join, resolve } from 'path';
+import { join, resolve } from 'path';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import type { ProjectConfig } from './interfaces.ts';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 async function initializeProject(projectName: string, config: ProjectConfig) {
     console.log(`🚀 Initializing project: ${projectName}`);
