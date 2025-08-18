@@ -1,0 +1,217 @@
+---
+name: Vibecoder
+description: Vibecoder Project Boilerplate Specs
+globs:
+alwaysApply: false
+---
+
+
+# vibecoder Project Role Specification
+
+You are an AI coding assistant working on the vibecoder project. Follow these specifications strictly.
+
+## Project Context
+
+- **Project Type**: TypeScript Node.js application targeting Node.js 24 with native TypeScript support, so never use vanilla js or ts-node and not install external or typescript libs, use only the integrated one in nodejs 24
+- **Architecture**: Library-first design with functions exportable from `src/index.ts`
+- **Language**: All code, comments, logs, and documentation must be in English
+- **Formatting**: Use Prettier for all code formatting
+
+## Core Responsibilities
+
+### Code Development
+- Write clean, maintainable TypeScript code with strict typing
+- Implement proper error handling with try-catch blocks
+- Use async/await patterns over raw promises
+- Avoid `any` types unless absolutely necessary
+- Export reusable functions from `src/index.ts`
+- Avoid using vanilla .js nodejs files, use .ts files in any case
+- all Nodejs code live inside src folder, except package.json and package-lock.json
+
+### Documentation Management
+- Update README.md to reflect new functionality
+- Update CHANGELOG.md for all modifications
+- Provide clear usage examples and API documentation
+- Maintain consistency across all documentation
+
+### Quality Assurance
+- Ensure all code compiles without TypeScript errors
+- Implement appropriate logging with correct log levels
+- Add meaningful comments for complex logic
+- Test functionality before suggesting changes
+
+## Workflow Guidelines
+
+### Before Making Changes
+1. Analyze the exact requirements
+2. Review existing code to avoid conflicts
+3. Plan minimal changes needed
+4. Consider impact on other system components
+
+### During Implementation
+1. Make incremental, focused changes
+2. Follow existing code patterns and style
+3. Implement proper error handling
+4. Consider edge cases and error conditions
+
+### After Implementation
+1. Update README.md with new functionality
+2. Add entries to CHANGELOG.md
+3. Verify functions are properly exported from `src/index.ts`
+4. Check for unnecessary dependencies
+
+## Code Standards
+
+### TypeScript Best Practices
+```typescript
+// ✅ Good: Proper typing - Define interfaces in interfaces.ts
+interface UserConfig {
+  name: string;
+  age: number;
+  preferences?: string[];
+}
+
+// ❌ Avoid: Any types
+const data: any = getData();
+
+// ✅ Good: Async/await
+async function fetchUser(id: string): Promise<User> {
+  try {
+    const response = await api.get(`/users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch user:', error);
+    throw new Error('User not found');
+  }
+}
+```
+
+### Type Definition Rules
+- **Centralized Types**: All interfaces and types consumed by the application must be defined in `src/interfaces.ts`
+- **Export Strategy**: Export types from interfaces.ts and import them where needed
+- **Type Organization**: Group related interfaces together with clear comments
+- **Naming Convention**: Use PascalCase for interfaces and types
+
+```typescript
+// ✅ Good: Define in interfaces.ts
+// src/interfaces.ts
+export interface UserConfig {
+  name: string;
+  age: number;
+  preferences?: string[];
+}
+
+export interface ApiResponse<T> {
+  data: T;
+  status: number;
+  message?: string;
+}
+
+// ✅ Good: Import and use
+// src/services/UserService.ts
+import { UserConfig, ApiResponse } from '../interfaces.ts';
+
+async function fetchUser(id: string): Promise<ApiResponse<UserConfig>> {
+  // implementation
+}
+```
+
+### Logging Standards
+```typescript
+// ✅ Good: Appropriate log levels
+console.info('Application started successfully');
+console.warn('Deprecated function called');
+console.error('Database connection failed:', error);
+console.log('Processing user request:', userId);
+```
+
+### Export Strategy
+```typescript
+// ✅ Good: Clean exports from index.ts
+export { boot } from './boot.ts';
+export { UserService } from './services/UserService.ts';
+export type { UserConfig, ApiResponse } from './interfaces.ts';
+```
+
+## File Modification Rules
+
+### Allowed Changes
+- Directly related to the specific request
+- Maintains existing file structure
+- Preserves naming conventions
+- Follows established patterns
+
+### Prohibited Changes
+- Unrelated functionality modifications
+- Breaking changes without clear justification
+- Style changes beyond Prettier formatting
+- Dependency additions without necessity
+
+## Communication Protocol
+
+### Response Format
+1. **Summary**: Brief description of changes made
+2. **Implementation**: Detailed explanation of the approach
+3. **Code Examples**: Usage examples for new functionality
+4. **Impact**: How changes affect the project
+5. **Next Steps**: Suggested follow-up actions
+
+### Error Handling
+- Provide clear error messages
+- Suggest recovery options
+- Log errors with appropriate detail
+- Document troubleshooting steps
+
+## Quality Checklist
+
+Before submitting any changes, verify:
+
+- [ ] TypeScript compiles without errors
+- [ ] All functions are properly typed
+- [ ] Error handling is implemented
+- [ ] Logging uses appropriate levels
+- [ ] README.md is updated
+- [ ] CHANGELOG.md is updated
+- [ ] Code is formatted with Prettier
+- [ ] No unnecessary dependencies added
+- [ ] Functions are exported from `src/index.ts` if needed
+- [ ] Comments are in English
+- [ ] Variable names are descriptive
+- [ ] Types and interfaces are defined in interfaces.ts
+
+## Emergency Procedures
+
+### When Issues Arise
+1. **Assess**: Identify the scope and impact
+2. **Document**: Record what went wrong and why
+3. **Plan**: Develop a rollback or fix strategy
+4. **Communicate**: Explain the situation clearly
+5. **Execute**: Apply fixes incrementally
+
+### Recovery Steps
+- Apply fixes in small, manageable steps
+- Test each fix before proceeding
+- Update documentation to reflect changes
+- Document lessons learned
+
+## Project-Specific Rules
+
+### Library Usage
+- Design all functions for library import
+- Maintain backward compatibility
+- Provide clear API documentation
+- Include usage examples
+
+### Testing Requirements
+- Write tests for new functionality
+- Test error conditions and edge cases
+- Ensure integration with existing code
+- Use descriptive test names in English
+
+### Dependency Management
+- Minimize external dependencies
+- Document major version changes
+- Audit for security vulnerabilities
+- Keep dependencies up to date
+
+Remember: You are working on the vibecoder project. Always prioritize code quality, maintainability, and proper documentation while following these specifications exactly.

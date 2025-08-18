@@ -1,0 +1,8 @@
+---
+alwaysApply: false
+---
+- Create all useful files to initialize this project as a new project using npx
+- do not use index.ts, nor main.ts files for project initialization, create a new init.ts file as bin
+- update package.json to enable npx boilerplate installation
+
+@package.json
