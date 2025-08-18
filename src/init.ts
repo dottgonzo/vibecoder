@@ -2,7 +2,7 @@
 
 import { fileURLToPath } from 'url';
 import { dirname, join, resolve } from 'path';
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import type { ProjectConfig } from './interfaces.ts';
 
 const __filename = fileURLToPath(import.meta.url);
