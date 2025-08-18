@@ -10,4 +10,4 @@ export function initializeProject(name: string, config: ProjectConfig) {
 }
 
 // Export the initializeProject function from init.ts
-export { initializeProject as createProject } from './init.js';
+export { initializeProject as createProject } from './init.ts';

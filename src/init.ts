@@ -27,7 +27,7 @@ async function initializeProject(projectName: string, config: ProjectConfig) {
         const packageJson = {
             name: projectName,
             version: "0.0.0",
-            description: config.description || "A Node.js project",
+            description: config.description || "A Node.ts project",
             license: config.license || "ISC",
             author: config.author || "",
             type: "module",
@@ -57,7 +57,7 @@ async function initializeProject(projectName: string, config: ProjectConfig) {
         mkdirSync(srcPath, { recursive: true });
         
         // Create index.ts
-        const indexContent = `import { ProjectConfig } from './interfaces.js';
+        const indexContent = `import { ProjectConfig } from './interfaces.ts';
 
 export async function boot() {
     console.log('Booting application...');
@@ -86,7 +86,7 @@ export interface ProjectConfig {
         console.log('✅ Created src/interfaces.ts');
         
         // Create main.ts
-        const mainContent = `import { boot } from "./index.js";
+        const mainContent = `import { boot } from "./index.ts";
 
 boot().then(() => {
     console.log('Boot completed');
@@ -114,7 +114,7 @@ You are an AI coding assistant working on the vibecoder project. Follow these sp
 
 ## Project Context
 
-- **Project Type**: TypeScript Node.js application targeting Node.js 24 with native TypeScript support, so never use vanilla js or ts-node and not install external or typescript libs, use only the integrated one in nodejs 24
+- **Project Type**: TypeScript Node.ts application targeting Node.ts 24 with native TypeScript support, so never use vanilla js or ts-node and not install external or typescript libs, use only the integrated one in nodejs 24
 - **Architecture**: Library-first design with functions exportable from \`src/index.ts\`
 - **Language**: All code, comments, logs, and documentation must be in English
 - **Formatting**: Use Prettier for all code formatting
@@ -127,7 +127,7 @@ You are an AI coding assistant working on the vibecoder project. Follow these sp
 - Use async/await patterns over raw promises
 - Avoid \`any\` types unless absolutely necessary
 - Export reusable functions from \`src/index.ts\`
-- Avoid using vanilla .js nodejs files, use .ts files in any case
+- Avoid using vanilla .ts nodejs files, use .ts files in any case
 - all Nodejs code live inside src folder, except package.json and package-lock.json
 
 ### Documentation Management
@@ -211,7 +211,7 @@ export interface ApiResponse<T> {
 
 // ✅ Good: Import and use
 // src/services/UserService.ts
-import { UserConfig, ApiResponse } from '../interfaces.js';
+import { UserConfig, ApiResponse } from '../interfaces.ts';
 
 async function fetchUser(id: string): Promise<ApiResponse<UserConfig>> {
   // implementation
@@ -230,9 +230,9 @@ console.log('Processing user request:', userId);
 ### Export Strategy
 \`\`\`typescript
 // ✅ Good: Clean exports from index.ts
-export { boot } from './boot.js';
-export { UserService } from './services/UserService.js';
-export type { UserConfig, ApiResponse } from './interfaces.js';
+export { boot } from './boot.ts';
+export { UserService } from './services/UserService.ts';
+export type { UserConfig, ApiResponse } from './interfaces.ts';
 \`\`\`
 
 ## File Modification Rules
@@ -325,7 +325,7 @@ Remember: You are working on the vibecoder project. Always prioritize code quali
         // Create README.md
         const readmeContent = `# ${projectName}
 
-${config.description || 'A Node.js project'}
+${config.description || 'A Node.ts project'}
 
 ## Installation
 
@@ -341,7 +341,7 @@ npm start
 
 ## Development
 
-This project uses TypeScript with Node.js 24 native TypeScript support.
+This project uses TypeScript with Node.ts 24 native TypeScript support.
 
 ## License
 
