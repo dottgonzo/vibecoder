@@ -1,8 +1,9 @@
 ---
 alwaysApply: false
 ---
-- Create all useful files to initialize this project as a new project using npx
+- Create all useful ts files to initialize this project as a boilerplate for a new project using npx
 - do not use index.ts, nor main.ts files for project initialization, create a new init.ts file as bin
 - update package.json to enable npx boilerplate installation
+- during boilerplate installation create the AGENTS.mdc rules files
 
 @package.json

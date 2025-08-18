@@ -1,17 +1,20 @@
 {
-  "name": "vibecoder",
+  "name": "vibecodernode",
   "version": "0.0.0",
-  "description": "",
+  "description": "A Node.js project template initializer",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "src/index.ts",
+  "bin": {
+    "vibecodernode": "src/init.ts"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release:patch": "npm version patch && npm run push",
     "release:minor": "npm version minor && npm run push",
     "release:major": "npm version major && npm run push",
-    "push": "git push && git push --tags"
+    "push": "git push && git push --tags && npm publish"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",

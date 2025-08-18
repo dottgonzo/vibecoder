@@ -1,4 +1,4 @@
-import { boot } from "./index.ts";
+import { boot } from "./index.js";
 
 
 boot().then(() => {
