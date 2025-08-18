@@ -3,7 +3,7 @@
 import { fileURLToPath } from 'url';
 import { dirname, join, resolve } from 'path';
 import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
-import { ProjectConfig } from './interfaces.ts';
+import type { ProjectConfig } from './interfaces.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
